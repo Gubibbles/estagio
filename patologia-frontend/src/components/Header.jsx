@@ -43,7 +43,7 @@ export default function Header() {
             }
           }}
         >
-          NOME DO PROJETO
+          TutorRad
         </h1>
 
         <nav className={styles.headerNav}>
