@@ -16,7 +16,7 @@ export default function CriarQuestionario() {
   useEffect(() => {
     const fetchPerguntas = async () => {
       try {
-        const response = await api.get('/perguntas');
+        const response = await api.get('/api/perguntas');
         setPerguntas(response.data);
       } catch (error) {
         toast.error('Erro ao carregar perguntas');
@@ -41,7 +41,7 @@ export default function CriarQuestionario() {
     try {
       const usuario = JSON.parse(localStorage.getItem('usuario'));
 
-      await api.post('/questionarios', {
+      await api.post('/api/questionarios', {
         nome,
         perguntas: selectedPerguntas,
         professorId: usuario.id,

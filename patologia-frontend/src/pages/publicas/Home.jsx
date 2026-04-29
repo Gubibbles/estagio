@@ -6,7 +6,8 @@ const Home = () => {
   return (
     <div style={{
       display: 'flex',
-      height: 'calc(100vh - 80px)',
+      height: '100%',
+      overflow: 'hidden',
       fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
     }}>
       {/* botão para alunos */}

@@ -14,7 +14,7 @@ export default function VisualizarQuestionarios() {
   useEffect(() => {
     const fetchQuestionarios = async () => {
       try {
-        const res = await api.get('/questionarios');
+        const res = await api.get('/api/questionarios');
         setQuestionarios(res.data);
       } catch (error) {
         toast.error('Erro ao carregar questionários');
@@ -29,7 +29,7 @@ export default function VisualizarQuestionarios() {
   const handleDelete = async (id) => {
     if (!window.confirm('Deseja realmente excluir este questionário?')) return;
     try {
-      await api.delete(`/questionarios/${id}`);
+      await api.delete(`/api/questionarios/${id}`);
       setQuestionarios((prev) => prev.filter((q) => q.id !== id));
       toast.success('Questionário excluído');
     } catch (error) {

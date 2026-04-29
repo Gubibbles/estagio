@@ -128,7 +128,13 @@ export default function Header() {
               </button>
 
               {/* botão para logout */}
-              <button onClick={logout} className={`${styles.navButton} ${styles.logoutButton}`}>
+              <button
+                onClick={() => {
+                  logout();
+                  navigate('/');
+                }}
+                className={`${styles.navButton} ${styles.logoutButton}`}
+              >
                 Sair
               </button>
             </>

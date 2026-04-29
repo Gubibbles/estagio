@@ -61,7 +61,7 @@ export function AuthProvider({ children }) {
   // faz login do usuário
   const login = async (credenciais) => {
     try {
-      const resposta = await fetch(`${API_URL}/auth/login`, {
+      const resposta = await fetch(`${API_URL}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(credenciais),
@@ -93,7 +93,7 @@ export function AuthProvider({ children }) {
   // faz cadastro de usuário
   const register = async (userData) => {
     try {
-      const endpoint = `${API_URL}/auth/register/${userData.tipo || 'aluno'}`;
+      const endpoint = `${API_URL}/api/auth/register/${userData.tipo || 'aluno'}`;
 
       const resposta = await fetch(endpoint, {
         method: 'POST',

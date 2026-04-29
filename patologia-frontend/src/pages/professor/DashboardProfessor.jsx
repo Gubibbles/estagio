@@ -32,7 +32,7 @@ const DashboardProfessor = () => {
               onClick={() => navigate('/professor/exames')}
               className={`nav-button ${location.pathname.includes('/professor/exames') ? 'active' : ''}`}
             >
-              Exames
+              Imagens
             </button>
             <button
               onClick={() => navigate('/professor/perguntas')}
@@ -56,7 +56,7 @@ const DashboardProfessor = () => {
               onClick={() => navigate('/ia')}
               className={`nav-button ${location.pathname.includes('/ia') ? 'active' : ''}`}
             >
-              Analisar Imagem
+              Analisar Imagem com IA
             </button>
           </div>
         )}

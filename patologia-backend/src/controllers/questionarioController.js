@@ -8,9 +8,12 @@ class QuestionarioController {
   async create(req, res, next) {
     try {
       const professorId = req.usuario.id;
+      console.log('Criando questionário para professor:', professorId);
+    console.log('Dados recebidos:', req.body);
       const dados = { ...req.body, professorId };
 
       const questionario = await questionarioService.criarQuestionario(dados);
+      console.log('Questionário criado:', questionario);
 
       const formatted = {
         ...questionario,
@@ -19,6 +22,7 @@ class QuestionarioController {
 
       res.status(201).json(formatted);
     } catch (error) {
+      console.error('Erro no create:', error);
       next(new HttpError(500, error.message || 'Erro ao criar questionário'));
     }
   }

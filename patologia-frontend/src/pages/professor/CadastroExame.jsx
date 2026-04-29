@@ -64,14 +64,14 @@ export default function CadastroExame() {
 
       const token = localStorage.getItem('token');
 
-      await api.post('/exames', formDataToSend, {
+      await api.post('/api/exames', formDataToSend, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}`,
         },
       });
 
-      toast.success('Exame cadastrado com sucesso!');
+      toast.success('Imagem cadastrada com sucesso!');
       navigate('/professor/exames');
     } catch (error) {
       toast.error(
@@ -88,11 +88,11 @@ export default function CadastroExame() {
     <div className="container-cadastroexame-professor">
       <div className="card max-w-xl mx-auto">
         <BotaoVoltar to="/professor/exames" />
-        <h2 className="title text-center">Cadastro de Exame</h2>
+        <h2 className="title text-center">Cadastro de Imagem</h2>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div>
-            <label className="label-form">Nome do Exame</label>
+            <label className="label-form">Nome da Imagem</label>
             <input
               name="nome"
               value={formData.nome}
@@ -103,7 +103,7 @@ export default function CadastroExame() {
           </div>
 
           <div>
-            <label className="label-form">Tipo de Exame</label>
+            <label className="label-form">Tipo de Imagem</label>
             <select
               name="tipoImagem"
               value={formData.tipoImagem}
@@ -139,7 +139,7 @@ export default function CadastroExame() {
           </div>
 
           <div>
-            <label className="label-form">Imagem</label>
+            <label className="label-form">Selecionar arquivo</label>
             <input
               type="file"
               accept="image/*"
@@ -154,7 +154,7 @@ export default function CadastroExame() {
             disabled={isSubmitting}
             className="button button-cadastro-exame disabled:bg-green-300"
           >
-            {isSubmitting ? 'Cadastrando...' : 'Cadastrar Exame'}
+            {isSubmitting ? 'Cadastrando...' : 'Cadastrar Imagem'}
           </button>
         </form>
       </div>

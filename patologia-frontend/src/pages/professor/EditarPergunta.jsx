@@ -21,7 +21,7 @@ const EditarPergunta = () => {
   useEffect(() => {
     const carregarPergunta = async () => {
       try {
-        const response = await api.get(`/perguntas/${id}`);
+        const response = await api.get(`/api/perguntas/${id}`);
         const pergunta = response.data;
 
         setEnunciado(pergunta.enunciado);
@@ -50,7 +50,7 @@ const EditarPergunta = () => {
     }
 
     try {
-      await api.put(`/perguntas/${id}`, {
+      await api.put(`/api/perguntas/${id}`, {
         enunciado,
         alternativaA,
         alternativaB,

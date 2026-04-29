@@ -52,10 +52,10 @@ export default function VisualizarExames() {
     <div className="container-visualizarexames-professor">
       <div className="card">
         <BotaoVoltar />
-        <h2 className="title text-center mb-6">Exames Cadastrados</h2>
-        {/* lista exames cadastrados */}
+        <h2 className="title text-center mb-6">Imagens Cadastradas</h2>
+        {/* lista imagens cadastradas */}
         {!exames || exames.length === 0 ? (
-          <p>Nenhum exame encontrado.</p>
+          <p>Nenhuma imagem encontrada.</p>
         ) : (
           <div
             style={{

@@ -10,7 +10,7 @@ const MenuExames = () => {
     <div className="container-menuexames-professor">
       <div className="card max-w-md mx-auto text-center">
         <BotaoVoltar />
-        <h2 className="title">Painel de Exames</h2>
+        <h2 className="title">Painel de Imagens</h2>
         <p className="mb-4">Escolha uma opção:</p>
 
         {/* botões para cadastrar ou visualizar exames */}
@@ -28,13 +28,13 @@ const MenuExames = () => {
               className="nav-button"
               onClick={() => navigate('/professor/exames/cadastrar')}
             >
-              Cadastrar Exame
+              Cadastrar Imagem
             </button>
             <button
               className="nav-button"
               onClick={() => navigate('/professor/exames/visualizar')}
             >
-              Visualizar Exames
+              Visualizar Imagens
             </button>
           </div>
         </div>

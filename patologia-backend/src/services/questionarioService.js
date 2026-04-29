@@ -4,6 +4,7 @@ const prisma = new PrismaClient();
 class QuestionarioService {
   // cria um novo questionário e vincula perguntas
   async criarQuestionario({ nome, perguntas, professorId }) {
+    console.log('Service recebeu:', { nome, perguntas, professorId });
     try {
       const questionario = await prisma.questionario.create({
         data: {

@@ -37,7 +37,7 @@ export default function EditarExame() {
   useEffect(() => {
     const fetchExame = async () => {
       try {
-        const response = await api.get(`/exames/${id}`);
+        const response = await api.get(`/api/exames/${id}`);
         setExame(response.data);
       } catch (error) {
         alert('Não foi possível carregar o exame');
@@ -56,12 +56,12 @@ export default function EditarExame() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await api.put(`/exames/${id}`, {
+      await api.put(`/api/exames/${id}`, {
         nome: exame.nome,
         tipoImagem: exame.tipoImagem,
         especialidade: exame.especialidade,
       });
-      alert('Exame atualizado com sucesso!');
+      alert('Imagem atualizada com sucesso!');
       navigate('/professor/exames/visualizar');
     } catch (error) {
       alert('Erro ao salvar alterações');
@@ -80,11 +80,11 @@ export default function EditarExame() {
     <div className="container-editarexames-professor">
       <div className="card max-w-2xl mx-auto">
         <BotaoVoltar />
-        <h2 className="title text-center">Editar Exame</h2>
+        <h2 className="title text-center">Editar Imagem</h2>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-5 mt-4">
           <div>
-            <label className="label-form">Nome do Exame</label>
+            <label className="label-form">Nome da Imagem</label>
             <input
               type="text"
               name="nome"
@@ -96,7 +96,7 @@ export default function EditarExame() {
           </div>
 
           <div>
-            <label className="label-form">Tipo de Exame</label>
+            <label className="label-form">Tipo de Imagem</label>
             <select
               name="tipoImagem"
               value={exame.tipoImagem || ''}
@@ -127,7 +127,7 @@ export default function EditarExame() {
             </select>
             <p className="text-sm text-red-600 mt-2">
               * a imagem não pode ser alterada.
-              para modificar a imagem, exclua e cadastre novamente o exame.
+              para modificar a imagem, exclua e cadastre novamente.
             </p>
           </div>
 

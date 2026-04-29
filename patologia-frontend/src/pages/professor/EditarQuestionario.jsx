@@ -17,8 +17,8 @@ export default function EditarQuestionario() {
     const fetchData = async () => {
       try {
         const [questionarioRes, perguntasRes] = await Promise.all([
-          api.get(`/questionarios/${id}`),
-          api.get('/perguntas'),
+          api.get(`/api/questionarios/${id}`),
+          api.get('/api/perguntas'),
         ]);
 
         const dados = questionarioRes.data.data || questionarioRes.data;
@@ -50,7 +50,7 @@ export default function EditarQuestionario() {
     try {
       const usuario = JSON.parse(localStorage.getItem('usuario'));
 
-      await api.put(`/questionarios/${id}`, {
+      await api.put(`/api/questionarios/${id}`, {
         nome,
         perguntas: selectedPerguntas,
         professorId: usuario.id,

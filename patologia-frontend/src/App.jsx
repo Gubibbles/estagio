@@ -46,7 +46,9 @@ import VisualizarRespostas from './pages/professor/VisualizarRespostas';
 function App() {
   return (
     <AuthProvider>
+      <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
       <Header />
+      <main style={{ flex: 1, overflowY: 'auto', overflowX: 'hidden' }}>
       <Routes>
         {/* Rotas Públicas */}
         <Route path="/" element={<Home />} />
@@ -210,6 +212,19 @@ function App() {
         {/* Rota de Fallback */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+      </main>
+      </div>
       <ToastContainer
         position="top-right"
         autoClose={3000}

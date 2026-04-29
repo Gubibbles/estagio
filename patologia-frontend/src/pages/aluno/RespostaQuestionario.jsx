@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import BotaoVoltar from '../../components/BotaoVoltar';
-import api from '../../api';
-import QuestionariosService from '../../api/questionarios';
+import api from '../../services/api';
 import '../../styles/global.css';
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -25,9 +24,9 @@ export default function RespostaQuestionario() {
   useEffect(() => {
     const carregarDados = async () => {
       try {
-        const apiResponse = await QuestionariosService.obterPorId(id);
-        const payload = apiResponse.data ?? apiResponse;
-        if (!Array.isArray(payload.perguntas)) {
+        const response = await api.get(`/api/questionarios/${id}`);
+        const payload = response.data.data;
+        if (!payload || !Array.isArray(payload.perguntas)) {
           throw new Error('Estrutura de dados incorreta da API');
         }
         setQuestionario(payload);
@@ -74,7 +73,7 @@ export default function RespostaQuestionario() {
   const enviarRespostas = async () => {
     setLoading(true);
     try {
-      await api.post('/questionarios/respostas', {
+      await api.post('/api/questionarios/respostas', {
         questionarioId: parseInt(id),
         respostas: Object.entries(respostas).map(([perguntaId, dados]) => ({
           perguntaId: parseInt(perguntaId),

@@ -24,7 +24,7 @@ const CadastroPergunta = () => {
   useEffect(() => {
     const fetchExames = async () => {
       try {
-        const response = await api.get('/exames');
+        const response = await api.get('/api/exames');
         setExames(response.data);
       } catch (error) {
         toast.error('Erro ao carregar exames');
@@ -56,7 +56,7 @@ const CadastroPergunta = () => {
     };
 
     try {
-      await api.post('/perguntas', dadosParaEnviar);
+      await api.post('/api/perguntas', dadosParaEnviar);
       toast.success('Pergunta cadastrada com sucesso!');
       navigate('/professor/perguntas');
     } catch (error) {
@@ -82,14 +82,14 @@ const CadastroPergunta = () => {
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
           <div>
-            <label className="block font-semibold mb-1">Exame Relacionado</label>
+            <label className="block font-semibold mb-1">Imagem Relacionada</label>
             <select
               value={formData.exameId}
               onChange={(e) => setFormData(prev => ({ ...prev, exameId: e.target.value }))}
               className="input"
               required
             >
-              <option value="">Selecione um exame</option>
+              <option value="">Selecione uma imagem</option>
               {exames.map(exame => (
                 <option key={exame.id} value={exame.id}>
                   {exame.nome} - {exame.especialidade}

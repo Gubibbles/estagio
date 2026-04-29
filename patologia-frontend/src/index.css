@@ -1,0 +1,12 @@
+/* Remove margens e paddings padrão de todos os elementos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Garante que html, body e #root ocupem 100% da altura e não tenham rolagem */
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}

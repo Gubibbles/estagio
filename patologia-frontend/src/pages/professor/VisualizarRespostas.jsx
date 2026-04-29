@@ -15,7 +15,7 @@ const VisualizarRespostas = () => {
     const buscarQuestionarios = async () => {
       try {
         setCarregando(true);
-        const response = await api.get("/questionarios");
+        const response = await api.get("/api/questionarios");
         setQuestionarios(response.data);
       } catch (error) {
         toast.error("Erro ao carregar questionários");
@@ -32,7 +32,7 @@ const VisualizarRespostas = () => {
     try {
       setCarregando(true);
       setQuestionarioSelecionado(id);
-      const response = await api.get(`/questionarios/${id}/respostas`);
+      const response = await api.get(`/api/questionarios/${id}/respostas`);
       setRespostas(response.data);
     } catch (error) {
       toast.error("Erro ao carregar respostas");
